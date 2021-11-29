@@ -1,0 +1,12 @@
+out/
+
+*.out
+
+
+.vscode/
+
+in.txt
+
+in.*
+
+*.in

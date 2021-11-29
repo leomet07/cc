@@ -1,0 +1,10 @@
+.vscode/
+
+*.in
+
+*.out
+
+__pycache__/
+
+out/
+
