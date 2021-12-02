@@ -45,10 +45,14 @@ int main() {
 
         for (int i = 1; i < levels.size(); i++){
             ll dist = levels[i] - levels[i - 1];
-            cout << "Distance: " << dist << " " << dist % x << endl;
-            if ( dist >= x){
-                if (dist % x >= k){
+            if ( dist > x){
+                cout << "Distance: " << dist << " " << dist % x << " K: " << k << " X: " << x <<  endl;
+                cout << "Greater distance: " << endl;
+                k--;
+                // if (dist % x >= k){
+                if (k < 0){
                     cout<< "Fail sad" << endl;
+                    
                     // fail, so we must break
                     b++;
                 }
