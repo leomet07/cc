@@ -36,7 +36,7 @@ int main() {
 
     sort(levels.begin(), levels.end());
 
-    // printV(levels);
+    printV(levels);
 
     bool run = !isStable(levels, x);
 
@@ -46,21 +46,32 @@ int main() {
         for (int i = 1; i < levels.size(); i++){
             ll dist = levels[i] - levels[i - 1];
             if ( dist > x){
-                // cout << "Distance: " << dist << " " << dist % x << " K: " << k << " X: " << x <<  endl;
-                // cout << "Greater distance: " << endl;
-                ll div = dist / x;
-                if (div > k){ // no worth it, so skip
+                ll div = (dist / x);
+                cout << "Distance: " << dist << " " << dist % x << " K: " << k << " X: " << x <<  endl;
+                cout << "Greater distance: , subber div: "  << div - 1 << endl;
+                if (k == 0){
                     b++;
                 } else{
-                k -= div;
-                // if (dist % x >= k){
-                if (k < 0){
-                    // cout<< "Fail sad" << endl;
-                    
-                    // fail, so we must break
-                    b ++;
+                    if (div > k){ // no worth it, so skip
+                        b++;
+                    } else{
+                        cout << " Worth adding... " << endl;
+                        cout << " K before: " << k << endl;
+                        k -= (dist   / x);
+                        if (dist % x == 0){ // could be bridged with one
+                            k++;
+                        }
+                        cout << " K after: " << k << endl;
+                        // if (dist % x >= k){
+                        if (k < 0){
+                            // cout<< "Fail sad" << endl;
+                            
+                            // fail, so we must break
+                            b ++;
+                        }
+                    }
                 }
-                }
+                
                 
             }
         }
