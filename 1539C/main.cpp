@@ -85,6 +85,8 @@ int main() {
                 
                 
             } 
+
+            cout << "B: " << b << endl;
         }
     } 
     // else{
