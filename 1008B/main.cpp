@@ -22,7 +22,9 @@ int main() {
     // read the receievd rects
     for (ll i = 0; i < rects.size(); i++ ){
         pair<ll, ll> r = rects[i];
-        cout << "Width: "<< r.first << " Height: " << r.second << endl;
+        ll w = r.first;
+        ll h = r.second;
+        cout << "Width: "<< w << " Height: " << h << endl;
     }
     return 0;
 
