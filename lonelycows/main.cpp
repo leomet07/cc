@@ -16,8 +16,8 @@ int main(){
 	cin >> f;
 
 	char cows[n];
-	vector<pair<ll, ll>> prefix_of_tos;
-	prefix_of_tos.push_back(pair<ll, ll>(0, 0));
+	pair<ll, ll> prefix_of_tos[n+1];
+	prefix_of_tos[0] = pair<ll, ll>(0, 0);
 	ll g_master = 0;
 	ll h_master = 0;
 	for (ll i = 0; i < n; i++){
@@ -28,7 +28,7 @@ int main(){
 		}else if (c == 'G'){
 			g_master++;
 		}
-		prefix_of_tos.push_back(pair<ll, ll>(g_master, h_master));
+		prefix_of_tos[i+1] = pair<ll, ll>(g_master, h_master);
 	}
 
 	
