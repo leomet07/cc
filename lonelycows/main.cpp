@@ -24,9 +24,9 @@ int main(){
 		cout << "in cows: " << cows[i] << endl;
 	}
 
-	// for (ll seqlen = 3; seqlen < n + 1; seqlen++ ){
 	ll lonlies = 0;
-	for (ll seqlen = 3; seqlen < 4; seqlen++ ){
+	// for (ll seqlen = 3; seqlen < n + 1; seqlen++ ){
+	for (ll seqlen = 3; seqlen < n + 1; seqlen++ ){
 		
 		cout << "Possible seqlen: " << seqlen << endl;
 		// count cows
@@ -41,7 +41,7 @@ int main(){
 			// count cows
 			for (ll i = left; i < right; i++){
 				char t = cows[i];
-				cout << "Cow in looper: " << t << endl;
+				// cout << "Cow in looper: " << t << endl;
 				if(t == 'H'){
 					h++;
 				}else if (t == 'G'){
@@ -54,6 +54,8 @@ int main(){
 			if (g == 1 || h == 1){
 				cout << "Lonley possbility found, so incrementing lonlies" << endl;
 				lonlies++;
+			} else{
+				cout << "Not a lonley" << endl;
 			}
 		}
 	}
