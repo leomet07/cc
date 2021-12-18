@@ -18,29 +18,30 @@ int main(){
 		cin >> goal[i];
 		// cout << "i: " << i << " Goal: " << goal[i] << endl;
 	}
-	ll current[n];
 
-	set<ll> alldists;
+	vector<ll> alldists;
 	ll total_moves = 0;
 	for (ll i =0; i < n;i++){
-		cin >> current[i];
+		ll currentv;
+		cin >> currentv;
 
 		// distance from optimal
-		ll dista = current[i] - goal[i];
+		ll dista = currentv - goal[i];
 
 		
 		// ll distance = 
-		// cout << "i: " << i << " Current: " << current[i] << " Distance: "<< dista << "Do hit?: " << int(i == n-1) << endl;
+		// cout << "i: " << i << " Current: " << currentv << " Distance: "<< dista << "Do hit?: " << int(i == n-1) << endl;
 
 		if (dista != 0){ 
-			alldists.insert(dista);
+			alldists.push_back(dista);
 		}
 		if (dista==0 || i == n-1){
+			sort( alldists.begin(), alldists.end() );
+			alldists.erase( unique( alldists.begin(), alldists.end() ), alldists.end() );
 			// cout << "HIT: " << endl;
 			ll moves = 0;
 			ll s = 0;
-			for (auto elem : alldists)
-			{
+			for (auto elem : alldists){
 				ll e = elem * -1;
 				// std::cout << "Distance: " <<  e << endl;
 				moves += abs(s - e);
