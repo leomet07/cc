@@ -24,9 +24,9 @@ int main(){
 		}else if (f.at(i) == 'G'){
 			g_master++;
 		}
-		prefix_of_tos[i+1] = pair<ll, ll>(g_master, h_master);
+		prefix_of_tos[i+1].first = g_master;
+		prefix_of_tos[i+1].second = h_master;
 	}
-
 
 	ll lonlies = 0;
 	for (ll seqlen = 3; seqlen < n + 1; seqlen++ ){ 
