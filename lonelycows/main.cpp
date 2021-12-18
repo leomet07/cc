@@ -53,34 +53,14 @@ int main(){
 		// count cows
 		
 		for (ll left = 0; left < n - (seqlen -1); left++){
-			ll h = 0;
-			ll g = 0;
 			ll right = left + seqlen;
 			cout << "Left: " << left << " Right: " << right << endl;
 
-			ll guess_g_right = prefix_of_tos[right ].first;
-			ll guess_h_right = prefix_of_tos[right].second;
-			ll guess_g_left = prefix_of_tos[left ].first;
-			ll guess_h_left = prefix_of_tos[left].second;
-			cout << "Guess g right " << guess_g_right << endl;
-			cout << "Guess h right " << guess_h_right << endl;
-			cout << "Guess g left " << guess_g_left << endl;
-			cout << "Guess h left " << guess_h_left << endl;
-
-			ll guess_g = prefix_of_tos[right ].first - prefix_of_tos[left ].first;
-			ll guess_h =  prefix_of_tos[right].second - prefix_of_tos[left].second;
-			cout << "Guess full g: " << guess_g << endl;
-			cout << "Guess full h: " << guess_h << endl;
-			// count cows 
-			for (ll i = left; i < right; i++){
-				char t = cows[i];
-				cout << "Cow in looper: " << t << endl;
-				if(t == 'H'){
-					h++;
-				}else if (t == 'G'){
-					g++;
-				}
-			}
+			ll g = prefix_of_tos[right ].first - prefix_of_tos[left ].first;
+			ll h =  prefix_of_tos[right].second - prefix_of_tos[left].second;
+			// cout << "Guess full g: " << guess_g << endl;
+			// cout << "Guess full h: " << guess_h << endl;
+			
 
 			cout << "G cows counted: " << g << " H cows counted: " << h << endl;
 
