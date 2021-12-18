@@ -20,9 +20,30 @@ int main(){
 		cows[i] = c;
 	}
 
+	vector<pair<ll, ll>> prefix_of_tos;
+
+	ll g_master = 0;
+	ll h_master = 0;
 	for (ll i = 0; i < n; i++){
-		cout << "in cows: " << cows[i] << endl;
+		char t = cows[i];
+		if(t == 'H'){
+			h_master++;
+		}else if (t == 'G'){
+			g_master++;
+		}
+		prefix_of_tos.push_back(pair<ll, ll>(g_master, h_master));
+		cout << "in cows t: " << t << endl;
 	}
+
+	for (ll d = 0; d < prefix_of_tos.size(); d++){
+		pair<ll, ll> currentpair = prefix_of_tos[d];
+		ll g = currentpair.first;
+		ll h = currentpair.second;
+
+		cout << "Up to and including index d: " << d << " G: " << g << " H: " << h << endl;
+	}
+
+	
 
 	ll lonlies = 0;
 	// for (ll seqlen = 3; seqlen < n + 1; seqlen++ ){
