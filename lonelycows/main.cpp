@@ -1,4 +1,3 @@
-#include <vector>
 #include <iostream>
 using namespace std;
 
@@ -21,11 +20,10 @@ int main(){
 	ll g_master = 0;
 	ll h_master = 0;
 	for (ll i = 0; i < n; i++){
-		char c = f.at(i);
-		cows[i] = c;
-		if(c == 'H'){
+		cows[i] = f.at(i);
+		if(f.at(i) == 'H'){
 			h_master++;
-		}else if (c == 'G'){
+		}else if (f.at(i) == 'G'){
 			g_master++;
 		}
 		prefix_of_tos[i+1] = pair<ll, ll>(g_master, h_master);
@@ -56,11 +54,11 @@ int main(){
 		// count cows
 		
 		for (ll left = 0; left < n - (seqlen -1); left++){
-			ll right = left + seqlen;
+			
 			// cout << "Left: " << left << " Right: " << right << endl;
 
-			ll g = prefix_of_tos[right ].first - prefix_of_tos[left ].first;
-			ll h =  prefix_of_tos[right].second - prefix_of_tos[left].second;
+			ll g = prefix_of_tos[left + seqlen].first - prefix_of_tos[left ].first;
+			ll h =  prefix_of_tos[left + seqlen].second - prefix_of_tos[left].second;
 			// cout << "Guess full g: " << guess_g << endl;
 			// cout << "Guess full h: " << guess_h << endl;
 			
