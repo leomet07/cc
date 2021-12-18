@@ -21,7 +21,7 @@ int main(){
 	}
 
 	vector<pair<ll, ll>> prefix_of_tos;
-
+	prefix_of_tos.push_back(pair<ll, ll>(0, 0));
 	ll g_master = 0;
 	ll h_master = 0;
 	for (ll i = 0; i < n; i++){
@@ -40,7 +40,7 @@ int main(){
 		ll g = currentpair.first;
 		ll h = currentpair.second;
 
-		cout << "Up to and including index d: " << d << " G: " << g << " H: " << h << endl;
+		cout << "Up to and including index d: " << d -1 << " G: " << g << " H: " << h << endl;
 	}
 
 	
@@ -58,11 +58,23 @@ int main(){
 			ll right = left + seqlen;
 			cout << "Left: " << left << " Right: " << right << endl;
 
+			ll guess_g_right = prefix_of_tos[right ].first;
+			ll guess_h_right = prefix_of_tos[right].second;
+			ll guess_g_left = prefix_of_tos[left ].first;
+			ll guess_h_left = prefix_of_tos[left].second;
+			cout << "Guess g right " << guess_g_right << endl;
+			cout << "Guess h right " << guess_h_right << endl;
+			cout << "Guess g left " << guess_g_left << endl;
+			cout << "Guess h left " << guess_h_left << endl;
 
-			// count cows
+			ll guess_g = prefix_of_tos[right ].first - prefix_of_tos[left ].first;
+			ll guess_h =  prefix_of_tos[right].second - prefix_of_tos[left].second;
+			cout << "Guess full g: " << guess_g << endl;
+			cout << "Guess full h: " << guess_h << endl;
+			// count cows 
 			for (ll i = left; i < right; i++){
 				char t = cows[i];
-				// cout << "Cow in looper: " << t << endl;
+				cout << "Cow in looper: " << t << endl;
 				if(t == 'H'){
 					h++;
 				}else if (t == 'G'){
