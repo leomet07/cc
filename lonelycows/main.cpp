@@ -15,25 +15,27 @@ int main(){
 	cin >> f;
 
 	char cows[n];
-	for (ll i = 0; i < f.length(); i++){
-		char c = f.at(i);
-		cows[i] = c;
-	}
-
 	vector<pair<ll, ll>> prefix_of_tos;
 	prefix_of_tos.push_back(pair<ll, ll>(0, 0));
 	ll g_master = 0;
 	ll h_master = 0;
 	for (ll i = 0; i < n; i++){
-		char t = cows[i];
-		if(t == 'H'){
+		char c = f.at(i);
+		cows[i] = c;
+		if(c == 'H'){
 			h_master++;
-		}else if (t == 'G'){
+		}else if (c == 'G'){
 			g_master++;
 		}
 		prefix_of_tos.push_back(pair<ll, ll>(g_master, h_master));
-		// cout << "in cows t: " << t << endl;
 	}
+
+	
+	// for (ll i = 0; i < n; i++){
+	// 	char t = cows[i];
+		
+	// 	// cout << "in cows t: " << t << endl;
+	// }
 
 	// for (ll d = 0; d < prefix_of_tos.size(); d++){
 	// 	pair<ll, ll> currentpair = prefix_of_tos[d];
@@ -67,9 +69,7 @@ int main(){
 			if (g == 1 || h == 1){
 				// cout << "Lonley possbility found, so incrementing lonlies" << endl;
 				lonlies++;
-			} else{
-				// cout << "Not a lonley" << endl;
-			}
+			} 
 		}
 	}
 
