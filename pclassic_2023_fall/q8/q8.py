@@ -16,32 +16,42 @@ for row in range(0, 5):
         item = grid[row][col]
         positions[item] = [row, col] # Y THEN X
 
-print(positions)
+# print(positions)
 
 lpos = positions[l]
 rpos = positions[r]
 
-print(lpos)
-print(rpos)
+# print(lpos)
+# print(rpos)
 
 def manhattan_distance(p1, p2):
     return max(abs(p1[0] - p2[0]), abs(p1[1] - p2[1]))
 
-moves = 0
 
-for c in s:
-    current_cords = positions[c]
+def solve(i):
+    global lpos
+    global rpos
+    if i == len(s):
+        return 0
+    current_cords = positions[s[i]]
     mdist_for_l = manhattan_distance(lpos, current_cords)
-    mdist_for_r = manhattan_distance(lpos, current_cords)
+    tmp = lpos.copy()
+    lpos = current_cords
+    left_dist = solve(i + 1) + mdist_for_l
+    lpos = tmp
 
-    print("Mdist for l: ", mdist_for_l)
-    print("Mdist for r: ", mdist_for_r)
+    mdist_for_r = manhattan_distance(rpos, current_cords)
+    tmp = rpos.copy()
+    rpos = current_cords
+    right_dist = solve(i + 1) + mdist_for_r
+    rpos = tmp
 
-    if mdist_for_r < mdist_for_l:
-        rpos = current_cords
-    else:
-        lpos = current_cords
-    moves += min(mdist_for_l, mdist_for_r)
-    moves += 1
+
+
+
+    return  min(left_dist, right_dist) + 1
     # Manhattan distance of both
-print("MOVES TAKEN: ", moves)
+moves = solve(0)
+
+print(moves)
+# print("MOVES TAKEN: ", moves)
