@@ -9,3 +9,4 @@ for word in words:
         c += 1
 
 print(c)
+
