@@ -23,30 +23,25 @@ signed main(){
     cin>>q;
 
     // cout <<"NRQ: " << n << " " << r << " "<< q << endl;
-
-    vector<vector<ll>> moves ; 
+    ll moves[r][2];  // OPTIMIZE TO USE ARRAY
     
-    while(r--){
+    int insert = 0;
+    ll rloop = r;
+    while(rloop--){
         ll s; cin >> s;
         ll e; cin >> e;
-        vector<ll> move = {s, e};
-        moves.push_back(move);
+        moves[insert][0] = s;
+        moves[insert][1] = e;
+        insert++;
     }
-
-    // Print vector
-    // for (int i = 0; i< moves.size(); i++){
-    //     vector<ll> move = moves.at(i);
-    //     cout << move.at(0) << ", " << move.at(1) << endl;
-    // }
 
     
 
     while(q--){
         ll x; cin >> x;
-        for (int i = moves.size() - 1; i >= 0; i--){
-            vector<ll> move = moves.at(i);
-            ll s = move.at(0);
-            ll e = move.at(1);
+        for (int i = r - 1; i >= 0; i--){
+            ll s = moves[i][0];
+            ll e = moves[i][1];
             if (x < s || x > e){
                 continue;
             } else {
