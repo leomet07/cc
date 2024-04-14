@@ -22,7 +22,7 @@ signed main(){
     ll q;
     cin>>q;
 
-    cout <<"NRQ: " << n << " " << r << " "<< q << endl;
+    // cout <<"NRQ: " << n << " " << r << " "<< q << endl;
 
     vector<vector<ll>> moves ; 
     
@@ -34,10 +34,10 @@ signed main(){
     }
 
     // Print vector
-    for (int i = 0; i< moves.size(); i++){
-        vector<ll> move = moves.at(i);
-        cout << move.at(0) << ", " << move.at(1) << endl;
-    }
+    // for (int i = 0; i< moves.size(); i++){
+    //     vector<ll> move = moves.at(i);
+    //     cout << move.at(0) << ", " << move.at(1) << endl;
+    // }
 
     
 
